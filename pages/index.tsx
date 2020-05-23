@@ -43,6 +43,11 @@ export default function Home({ allPostsData }: HomeProps) {
           ))}
         </ul>
       </section>
+      <section className={`${utilStyles.lightText}`}>
+        <p>
+          This text is to test the preview funcionality of Next.js and Vercel!
+        </p>
+      </section>
     </Layout>
   );
 }
