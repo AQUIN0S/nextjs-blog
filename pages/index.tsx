@@ -4,6 +4,7 @@ import Date from '../components/date/date';
 import Layout, { siteTitle } from '../components/layout/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
+import { GetStaticProps } from 'next';
 
 interface HomeProps {
   allPostsData: {
@@ -43,11 +44,16 @@ export default function Home({ allPostsData }: HomeProps) {
           ))}
         </ul>
       </section>
+      <section className={`${utilStyles.lightText}`}>
+        <p>
+          This text is to test the preview funcionality of Next.js and Vercel!
+        </p>
+      </section>
     </Layout>
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
