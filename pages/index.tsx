@@ -4,6 +4,7 @@ import Date from '../components/date/date';
 import Layout, { siteTitle } from '../components/layout/layout';
 import utilStyles from '../styles/utils.module.css';
 import { getSortedPostsData } from '../lib/posts';
+import { GetStaticProps } from 'next';
 
 interface HomeProps {
   allPostsData: {
@@ -52,7 +53,7 @@ export default function Home({ allPostsData }: HomeProps) {
   );
 }
 
-export async function getStaticProps() {
+export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const allPostsData = getSortedPostsData();
   return {
     props: {
